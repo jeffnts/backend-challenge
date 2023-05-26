@@ -2,7 +2,7 @@ import { AccountsService } from "./accounts.service";
 import { AccountsController } from "./accounts.controller";
 
 import { Module } from "@nestjs/common";
-import { AccountsRepository } from "./accounts.repository";
+import { AccountsRepository } from "./repositories";
 
 @Module({
   imports: [],

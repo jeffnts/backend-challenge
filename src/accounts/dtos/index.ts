@@ -1,0 +1,1 @@
+export { DepositDTO } from './deposit.dto'

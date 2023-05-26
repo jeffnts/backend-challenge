@@ -1,0 +1,1 @@
+export { AccountRepositoryInterface  } from './acount-repository.interface'

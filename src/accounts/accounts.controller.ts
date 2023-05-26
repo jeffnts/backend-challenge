@@ -1,6 +1,8 @@
-import { ClassSerializerInterceptor, Controller, Get, UseInterceptors } from '@nestjs/common';
+import { ClassSerializerInterceptor, Controller, Get, Post, Body, Param,  UseInterceptors } from '@nestjs/common';
 import { AccountsService } from './accounts.service';
 import { Account } from './account.model';
+import { DepositDTO } from './dtos'
+import { AccountType } from './types'
 
 @Controller('accounts')
 export class AccountsController {
@@ -9,6 +11,16 @@ export class AccountsController {
     @UseInterceptors(ClassSerializerInterceptor)
     @Get()
     public async all(): Promise<Account[]> {
-        return await this.accountsService.all();
+        return  this.accountsService.all();
+    }
+
+    @Get(':id')
+    public async find(@Param('id') id: number): Promise<AccountType> {
+        return this.accountsService.find(id)
+    }
+
+    @Post('/deposit')
+    public async deposit(@Body() request: DepositDTO) {
+        return this.accountsService.deposit(request)
     }
 }

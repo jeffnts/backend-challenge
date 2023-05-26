@@ -14,5 +14,10 @@ export class Account {
     @Expose()
     get balance(): number {
         return this.transactions.reduce((acc, curr) => acc + curr, 0)
-    }
+    }  
+
+
+    public setTransaction(value: number){
+        this.transactions.push(value)
+    }    
 }
